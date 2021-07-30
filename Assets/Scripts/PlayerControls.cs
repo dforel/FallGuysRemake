@@ -21,7 +21,7 @@ public class PlayerControls : MonoBehaviour
 
     private CharacterController controller;
     private Vector3 playerVelocity;
-    private bool groundedPlayer;
+    private bool isGround;
     private Transform cameraMainTransform;
 
     private void OnEnable()
@@ -38,36 +38,41 @@ public class PlayerControls : MonoBehaviour
 
     private void Start()
     {
+        //获取CharacterController对象和主相机的Transform信息
         controller = gameObject.GetComponent<CharacterController>();
         cameraMainTransform = Camera.main.transform;
     }
 
     void Update()
     {
-        groundedPlayer = controller.isGrounded;
-        if (groundedPlayer && playerVelocity.y < 0)
+        isGround = controller.isGrounded; //判断Player是否在地面
+        if (isGround && playerVelocity.y < 0)
         {
             playerVelocity.y = 0f;
         }
 
-        Vector2 movement = movementControl.action.ReadValue<Vector2>();
+        Vector2 movement = movementControl.action.ReadValue<Vector2>(); //读取WASD键盘输入值
+        //计算移动
         Vector3 move = new Vector3(movement.x, 0, movement.y);
         move = cameraMainTransform.forward * move.z + cameraMainTransform.right * move.x;
         move.y = 0f;
+        //执行移动操作
         controller.Move(move * Time.deltaTime * playerSpeed);
 
-        // Changes the height position of the player..
-        if (jumpControl.action.triggered && groundedPlayer)
+        //处理Player跳跃
+        if (jumpControl.action.triggered && isGround)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
 
+        //处理Player下落
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
+        //处理Player随镜头旋转，还有点bug，再仔细研究一下
         if(movement != Vector2.zero)
         {
-            float targetAngle = Mathf.Atan2(movement.x, movement.y) * Mathf.Rad2Deg + cameraMainTransform.eulerAngles.y;
+            float targetAngle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg + cameraMainTransform.eulerAngles.y;
             Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
         }
