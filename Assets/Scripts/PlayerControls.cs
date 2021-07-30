@@ -69,11 +69,11 @@ public class PlayerControls : MonoBehaviour
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
-        //处理Player随镜头旋转，还有点bug，再仔细研究一下
+        //处理Player随镜头旋转
         if(movement != Vector2.zero)
         {
-            float targetAngle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg + cameraMainTransform.eulerAngles.y;
-            Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
+            float targetAngle = Mathf.Atan2(movement.x, movement.y) * Mathf.Rad2Deg + cameraMainTransform.eulerAngles.y - 90f;
+            Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);            
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
         }
     }
