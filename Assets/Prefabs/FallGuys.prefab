@@ -1616,9 +1616,9 @@ MonoBehaviour:
     type: 3}
   jumpControl: {fileID: -4480454727449974837, guid: c5ca69e3c7a4aa24794fe683528b6d69,
     type: 3}
-  playerSpeed: 5
+  playerSpeed: 7
   jumpHeight: 1
-  gravityValue: -9.81
+  gravityValue: -15
   rotationSpeed: 5
 --- !u!95 &8130656721620771674
 Animator:
@@ -1630,7 +1630,7 @@ Animator:
   m_GameObject: {fileID: 8940926071657374860}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 434888821a2518f40b65e81f9c7d6f92, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
