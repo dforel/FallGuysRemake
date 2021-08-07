@@ -1061,8 +1061,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4830624251332208569}
   - component: {fileID: 4936906529166654171}
-  - component: {fileID: 4936906529166654170}
   - component: {fileID: 4936906529166654165}
+  - component: {fileID: 4936906529166654170}
   m_Layer: 8
   m_Name: FallGuysPlayer
   m_TagString: Player
@@ -1100,30 +1100,10 @@ CharacterController:
   m_Height: 5.02
   m_Radius: 1.21
   m_SlopeLimit: 45
-  m_StepOffset: 0.5
+  m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 2.54, z: -0.15}
---- !u!114 &4936906529166654170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5206727989676178691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55e6fb01098284d43aacfc64636997e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementControl: {fileID: -1522377586868028678, guid: c5ca69e3c7a4aa24794fe683528b6d69,
-    type: 3}
-  jumpControl: {fileID: -4480454727449974837, guid: c5ca69e3c7a4aa24794fe683528b6d69,
-    type: 3}
-  playerSpeed: 12
-  jumpHeight: 1.2
-  gravityValue: -15
-  rotationSpeed: 5
 --- !u!95 &4936906529166654165
 Animator:
   serializedVersion: 3
@@ -1143,6 +1123,26 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4936906529166654170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5206727989676178691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55e6fb01098284d43aacfc64636997e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementControl: {fileID: -1522377586868028678, guid: c5ca69e3c7a4aa24794fe683528b6d69,
+    type: 3}
+  jumpControl: {fileID: -4480454727449974837, guid: c5ca69e3c7a4aa24794fe683528b6d69,
+    type: 3}
+  playerSpeed: 15
+  jumpHeight: 1.2
+  gravityValue: -25
+  rotationSpeed: 3
 --- !u!1 &5234659523539695090
 GameObject:
   m_ObjectHideFlags: 0
