@@ -22,7 +22,7 @@ public class PlayerCollision : MonoBehaviour
     {
         if (other.collider.CompareTag("Door"))
         {
-            Debug.Log("Player和门发生碰撞");
+            //Debug.Log("Player和门发生碰撞");
             Vector3 diffDoorPlayer = (transform.position - other.transform.position).normalized;
             //Vector3 diff = new Vector3(diffDoorPlayer.x, 0f, diffDoorPlayer.z);
             other.rigidbody.AddForce(-diffDoorPlayer * forceWithDoor);

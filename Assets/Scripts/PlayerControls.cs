@@ -61,11 +61,11 @@ public class PlayerControls : MonoBehaviour
         if (movement.x != 0f || movement.y != 0f)
         {
             //计算移动
-            Vector3 move = new Vector3(movement.x, 0, movement.y);
-            move = cameraMainTransform.forward * move.z + cameraMainTransform.right * move.x;
-            move.y = 0f;
+            Vector3 moveDirection = new Vector3(movement.x, 0, movement.y);
+            moveDirection = cameraMainTransform.forward * moveDirection.z + cameraMainTransform.right * moveDirection.x;
+            moveDirection.y = 0f;
             //执行移动操作
-            controller.Move(move * Time.deltaTime * playerSpeed);
+            controller.Move(playerSpeed * moveDirection * Time.deltaTime);
             anim.SetBool("Run", true);
         }
         else
