@@ -38,7 +38,7 @@ public class EnemyControls : MonoBehaviour
     private int levelEndDoorNum;
 
     private int currentLevel;
-    private bool flag;
+    public static bool flag;
 
 
     // Start is called before the first frame update
@@ -213,6 +213,12 @@ public class EnemyControls : MonoBehaviour
     {
         controller.Move(enemySpeed * direction * Time.deltaTime);
         anim.SetBool("Run", true);
+        if(direction != Vector3.zero)
+        {
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+            Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
+        }
     }
 
     void Jump()
