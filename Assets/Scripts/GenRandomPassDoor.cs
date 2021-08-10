@@ -12,80 +12,114 @@ public class GenRandomPassDoor : MonoBehaviour
     public GameObject[] lv6Doors;
     public GameObject[] lv7Doors;
 
+    public bool flag;
+
     private int[] lv1;
+    private int[] lv2;
+    private int[] lv3;
+    private int[] lv4;
+    private int[] lv5;
+    private int[] lv6;
+    private int[] lv7;
 
     // Start is called before the first frame update
     void Start()
     {
-        //lv1 = GetArray(lv1Doors.Length / 2);
-        //int[] lv1D = new int[lv1.Length * 2];
-        //for (int i = 0; i < lv1.Length; i++)
-        //{
-        //    lv1D[i * 2] = lv1[i];
-        //    lv1D[i * 2 + 1] = lv1[i];
-        //}
+        if(flag)
+        {
+            //计算第1排门随机关门数据
+            lv1 = new int[lv1Doors.Length / 2]; //构建单个门数量一半的数组
+            int p1 = Random.Range(0, lv1.Length); //生成随机位置信息
+            int p2 = Random.Range(0, lv1.Length);
+            int p3 = Random.Range(0, lv1.Length);
+            for (int i = 0; i < lv1.Length; i++)
+            {
+                if (i != p1 && i != p2 && i != p3)
+                {
+                    Destroy(lv1Doors[i * 2].GetComponent<Rigidbody>()); //让门无法通行
+                    Destroy(lv1Doors[i * 2 + 1].GetComponent<Rigidbody>());
+                }
+            }
 
-        //for (int i = 0; i < lv1D.Length; i++)
-        //{
-        //    if (lv1D[0] == 0)
-        //    {
-        //        Destroy(lv1Doors[i].GetComponent<Rigidbody>());
-        //    }
-        //}
+            //计算第2排门随机关门数据
+            lv2 = new int[lv2Doors.Length / 2]; //构建单个门数量一半的数组
+            p1 = Random.Range(0, lv2.Length); //生成随机位置信息
+            p2 = Random.Range(0, lv2.Length);
+            p3 = Random.Range(0, lv2.Length);
+            for (int i = 0; i < lv2.Length; i++)
+            {
+                if (i != p1 && i != p2 && i != p3)
+                {
+                    Destroy(lv2Doors[i * 2].GetComponent<Rigidbody>()); //让门无法通行
+                    Destroy(lv2Doors[i * 2 + 1].GetComponent<Rigidbody>());
+                }
+            }
 
-        //for (int i = 0; i < lv2Doors.Length; i = i + 2)
-        //{
-        //    if (Random.Range(0, 3) != 1)
-        //    {
-        //        Destroy(lv2Doors[i].GetComponent<Rigidbody>());
-        //        Destroy(lv2Doors[i + 1].GetComponent<Rigidbody>());
-        //    }
-        //}
+            //计算第3排门随机关门数据
+            lv3 = new int[lv3Doors.Length / 2]; //构建单个门数量一半的数组
+            p1 = Random.Range(0, lv3.Length); //生成随机位置信息
+            p2 = Random.Range(0, lv3.Length);
+            p3 = Random.Range(0, lv3.Length);
+            for (int i = 0; i < lv3.Length; i++)
+            {
+                if (i != p1 && i != p2 && i != p3)
+                {
+                    Destroy(lv3Doors[i * 2].GetComponent<Rigidbody>()); //让门无法通行
+                    Destroy(lv3Doors[i * 2 + 1].GetComponent<Rigidbody>());
+                }
+            }
 
-        //for (int i = 0; i < lv3Doors.Length; i = i + 2)
-        //{
-        //    if (Random.Range(0, 3) != 1)
-        //    {
-        //        Destroy(lv3Doors[i].GetComponent<Rigidbody>());
-        //        Destroy(lv3Doors[i + 1].GetComponent<Rigidbody>());
-        //    }
-        //}
+            //计算第4排门随机关门数据
+            lv4 = new int[lv4Doors.Length / 2]; //构建单个门数量一半的数组
+            p1 = Random.Range(0, lv4.Length); //生成随机位置信息
+            p2 = Random.Range(0, lv4.Length);
+            for (int i = 0; i < lv4.Length; i++)
+            {
+                if (i != p1 && i != p2)
+                {
+                    Destroy(lv4Doors[i * 2].GetComponent<Rigidbody>()); //让门无法通行
+                    Destroy(lv4Doors[i * 2 + 1].GetComponent<Rigidbody>());
+                }
+            }
 
-        //for (int i = 0; i < lv4Doors.Length; i = i + 2)
-        //{
-        //    if (Random.Range(0, 3) != 1)
-        //    {
-        //        Destroy(lv4Doors[i].GetComponent<Rigidbody>());
-        //        Destroy(lv4Doors[i + 1].GetComponent<Rigidbody>());
-        //    }
-        //}
+            //计算第5排门随机关门数据
+            lv5 = new int[lv5Doors.Length / 2]; //构建单个门数量一半的数组
+            p1 = Random.Range(0, lv5.Length); //生成随机位置信息
+            p2 = Random.Range(0, lv5.Length);
+            for (int i = 0; i < lv5.Length; i++)
+            {
+                if (i != p1 && i != p2)
+                {
+                    Destroy(lv5Doors[i * 2].GetComponent<Rigidbody>()); //让门无法通行
+                    Destroy(lv5Doors[i * 2 + 1].GetComponent<Rigidbody>());
+                }
+            }
 
-        //for (int i = 0; i < lv5Doors.Length; i = i + 2)
-        //{
-        //    if (Random.Range(0, 3) != 1)
-        //    {
-        //        Destroy(lv5Doors[i].GetComponent<Rigidbody>());
-        //        Destroy(lv5Doors[i + 1].GetComponent<Rigidbody>());
-        //    }
-        //}
+            //计算第6排门随机关门数据
+            lv6 = new int[lv6Doors.Length / 2]; //构建单个门数量一半的数组
+            p1 = Random.Range(0, lv6.Length); //生成随机位置信息
+            p2 = Random.Range(0, lv6.Length);
+            for (int i = 0; i < lv6.Length; i++)
+            {
+                if (i != p1 && i != p2)
+                {
+                    Destroy(lv6Doors[i * 2].GetComponent<Rigidbody>()); //让门无法通行
+                    Destroy(lv6Doors[i * 2 + 1].GetComponent<Rigidbody>());
+                }
+            }
 
-        //for (int i = 0; i < lv6Doors.Length; i = i + 2)
-        //{
-        //    if (Random.Range(0, 3) != 1)
-        //    {
-        //        Destroy(lv6Doors[i].GetComponent<Rigidbody>());
-        //        Destroy(lv6Doors[i + 1].GetComponent<Rigidbody>());
-        //    }
-        //}
-
-        //for (int i = 0; i < lv7Doors.Length; i = i + 2)
-        //{
-        //    if (Random.Range(0, 3) != 1)
-        //    {
-        //        Destroy(lv7Doors[i].GetComponent<Rigidbody>());
-        //        Destroy(lv7Doors[i + 1].GetComponent<Rigidbody>());
-        //    }
-        //}
+            //计算第7排门随机关门数据
+            lv7 = new int[lv7Doors.Length / 2]; //构建单个门数量一半的数组
+            p1 = Random.Range(0, lv7.Length); //生成随机位置信息
+            for (int i = 0; i < lv7.Length; i++)
+            {
+                if (i != p1)
+                {
+                    Destroy(lv7Doors[i * 2].GetComponent<Rigidbody>()); //让门无法通行
+                    Destroy(lv7Doors[i * 2 + 1].GetComponent<Rigidbody>());
+                }
+            }
+        }        
     }
 
     // Update is called once per frame
@@ -93,34 +127,4 @@ public class GenRandomPassDoor : MonoBehaviour
     {
         
     }
-
-    //int[] GetArray(int number)
-    //{
-    //    int[] arr = new int[number];
-    //    while (true)
-    //    {            
-    //        foreach (int i in arr)
-    //        {
-    //            arr[i] = Random.Range(0, 2); //0:门关闭 1：门开启
-    //        }
-
-    //        int count = 0; //统计开门数量
-
-    //        foreach (int i in arr)
-    //        {
-    //            if (arr[i] == 1)
-    //            {
-    //                count++;
-    //            }
-    //        }
-
-    //        if (count == 2)
-    //        {
-    //            break;
-    //        }
-    //    }
-
-    //    return arr;
-    //}
-
 }

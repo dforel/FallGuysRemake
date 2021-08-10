@@ -63,5 +63,6 @@ public class CountdownText : MonoBehaviour
         yield return new WaitForSeconds(t);
         countText.text = "";
         EnemyControls.flag = true;
+        PlayerControls.flag = true;
     }
 }

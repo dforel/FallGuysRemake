@@ -66,10 +66,10 @@ public class EnemyControls : MonoBehaviour
         //moveDirection.y = 0f;
         //controller.Move(enemySpeed * moveDirection * Time.deltaTime);
 
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            flag = true;
-        }
+        //if(Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    flag = true;
+        //}
 
         if(flag)
         {
