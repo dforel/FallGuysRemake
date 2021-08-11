@@ -99,4 +99,9 @@ public class PlayerControls : MonoBehaviour
             }
         }        
     }
+
+    public void setSpeed(float speed)
+    {
+        playerSpeed = speed;
+    }
 }

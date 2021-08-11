@@ -6,6 +6,13 @@ TagManager:
   tags:
   - Enemy
   - Door
+  - Like
+  - Coin
+  - Collect
+  - Trigger1
+  - Trigger2
+  - ChangeSpeed1
+  - ChangeSpeed2
   layers:
   - Default
   - TransparentFX
@@ -22,8 +29,8 @@ TagManager:
   - Door
   - EndFlag
   - SanLian
-  - 
-  - 
+  - Trigger
+  - CaiDan
   - 
   - 
   - 
